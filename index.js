@@ -1,4 +1,5 @@
 let tickerValue = document.querySelector('.tickerValue');
+let priceAnima = document.querySelector('.priceAni');
 
 
 // const searchTicker = () => {
@@ -67,6 +68,8 @@ const updatePrice = () => {
     })
 }
 
+//First Price Function but created flickering problem
+
 // const updatePrice = () => {
 //     let price = document.querySelector('#price');
 //     while(price.firstChild) {
@@ -84,9 +87,12 @@ const updatePrice = () => {
 //     })
 // }
 
-
+const priceAnimation = () => {
+    priceAnima.classList.toggle('priceAni')
+}
 
 
 // tickerValue.addEventListener('click', searchTicker);
-let runId = setTimeout(updateId, 4500)
-let runPrice = setInterval(updatePrice, 4500);
+let runId = setTimeout(updateId, 3000)
+let runAni = setInterval(priceAnimation, 3000);
+let runPrice = setInterval(updatePrice, 3000);
