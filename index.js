@@ -58,20 +58,31 @@ const updateId = () => {
 
 const updatePrice = () => {
     let price = document.querySelector('#price');
-    while(price.firstChild) {
-        price.removeChild(price.firstChild)
-    }
     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=XMR`)
     .then(res => {
         for(let i = 0; i <= res.data.length; i++) {
             let currentPrice = res.data[i].price;
-            let priceHolder = document.createElement('p');
-            priceHolder.classList.add('price');
-            priceHolder.textContent = currentPrice;
-            price.appendChild(priceHolder);
+            price.textContent = currentPrice;
         }
     })
 }
+
+// const updatePrice = () => {
+//     let price = document.querySelector('#price');
+//     while(price.firstChild) {
+//         price.removeChild(price.firstChild);
+//     }
+//     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=XMR`)
+//     .then(res => {
+//         for(let i = 0; i <= res.data.length; i++) {
+//             let currentPrice = res.data[i].price;
+//             let priceHolder = document.createElement('p');
+//             priceHolder.classList.add('price');
+//             priceHolder.textContent = currentPrice;
+//             price.appendChild(priceHolder);
+//         }
+//     })
+// }
 
 
 

@@ -5,12 +5,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
+}
+
+#price {
+  font-family: "Varela Round", sans-serif;
+  color: white;
+  font-size: x-large;
 }
 
 .id {
   font-family: "Varela Round", sans-serif;
   font-size: xx-large;
-  color: black;
+  color: white;
   animation: fadeIn linear 3s;
   -webkit-animation: fadeIn linear 0.5s;
   -moz-animation: fadeIn linear 0.5s;
@@ -58,10 +65,10 @@ body {
   }
 }
 
-.price {
+/* .price {
   font-family: "Varela Round", sans-serif;
   font-size: x-large;
-  color: black;
+  color: white;
   animation: fadeOut ease 4.5s;
   -webkit-animation: fadeOut ease 4.5s;
   -moz-animation: fadeOut ease 4.5s;
@@ -107,4 +114,4 @@ body {
   50% {
     opacity: 0;
   }
-}
+} */
