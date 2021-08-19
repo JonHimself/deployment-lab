@@ -18,7 +18,7 @@ body {
   font-family: "Varela Round", sans-serif;
   font-size: xx-large;
   color: white;
-  animation: fadeIn linear 3.5s;
+  animation: fadeIn linear 8s;
   -webkit-animation: fadeIn linear 0.5s;
   -moz-animation: fadeIn linear 0.5s;
   -o-animation: fadeIn linear 0.5s;
@@ -69,11 +69,11 @@ body {
   font-family: "Varela Round", sans-serif;
   font-size: x-large;
   color: white;
-  animation: fadeOut ease 3.5s;
-  -webkit-animation: fadeOut ease 3.5s;
-  -moz-animation: fadeOut ease 3.5s;
-  -o-animation: fadeOut ease 3.5s;
-  -ms-animation: fadeOut ease 3.5s;
+  animation: fadeOut ease 4s;
+  -webkit-animation: fadeOut ease 4s;
+  -moz-animation: fadeOut ease 4s;
+  -o-animation: fadeOut ease 4s;
+  -ms-animation: fadeOut ease 4s;
 }
 @keyframes fadeOut {
   0% {
