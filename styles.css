@@ -1,28 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: black;
   justify-content: center;
   align-items: center;
-  background-color: black;
+}
+
+#img-container {
+  display: flex;
+  align-items: flex-end;
+  height: 20vh;
+  width: 100%;
+  justify-content: center;
+}
+
+#crypto-name-container {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 10vh;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#crypto-price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 10vh;
+  width: 100%;
 }
 
 #price {
   font-family: "Varela Round", sans-serif;
   color: white;
-  font-size: x-large;
+  font-size: xx-large;
+}
+
+#search-container {
+  padding-top: 3%;
+  text-align: center;
+  align-self: center;
+  height: 25vh;
+  width: 100%;
+}
+
+img {
+  object-fit: cover;
+  max-height: 75%;
+  max-width: 75%;
+  animation: fadeIn linear 10s;
+  -webkit-animation: fadeIn linear 2s;
+  -moz-animation: fadeIn linear 2s;
+  -o-animation: fadeIn linear 2s;
+  -ms-animation: fadeIn linear 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .id {
   font-family: "Varela Round", sans-serif;
-  font-size: xx-large;
+  font-size: 48px;
   color: white;
-  animation: fadeIn linear 8s;
-  -webkit-animation: fadeIn linear 0.5s;
-  -moz-animation: fadeIn linear 0.5s;
-  -o-animation: fadeIn linear 0.5s;
-  -ms-animation: fadeIn linear 0.5s;
+  animation: fadeIn linear 10s;
+  -webkit-animation: fadeIn linear 2s;
+  -moz-animation: fadeIn linear 2s;
+  -o-animation: fadeIn linear 2s;
+  -ms-animation: fadeIn linear 2s;
 }
 @keyframes fadeIn {
   0% {
@@ -69,11 +158,11 @@ body {
   font-family: "Varela Round", sans-serif;
   font-size: x-large;
   color: white;
-  animation: fadeOut ease 4s;
-  -webkit-animation: fadeOut ease 4s;
-  -moz-animation: fadeOut ease 4s;
-  -o-animation: fadeOut ease 4s;
-  -ms-animation: fadeOut ease 4s;
+  animation: fadeOut ease 3s;
+  -webkit-animation: fadeOut ease 2.5s;
+  -moz-animation: fadeOut ease 2.5s;
+  -o-animation: fadeOut ease 2.5s;
+  -ms-animation: fadeOut ease 2.5s;
 }
 @keyframes fadeOut {
   0% {
@@ -116,53 +205,39 @@ body {
   }
 }
 
-/* .price {
+.search {
+  height: 25px;
+  width: 150px;
+  text-align: center;
   font-family: "Varela Round", sans-serif;
-  font-size: x-large;
+  font-size: 16px;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: 1px solid white;
+  background-color: rgb(0, 0, 0);
   color: white;
-  animation: fadeOut ease 4.5s;
-  -webkit-animation: fadeOut ease 4.5s;
-  -moz-animation: fadeOut ease 4.5s;
-  -o-animation: fadeOut ease 4.5s;
-  -ms-animation: fadeOut ease 4.5s;
 }
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+.search:focus {
+  outline: none;
 }
-@-moz-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+
+button {
+  height: 30px;
+  width: 100px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 16px;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  border: none;
 }
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+
+button:active {
+  background-color: rgb(53, 53, 53);
 }
-@-o-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+
+button:hover {
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
 }
-@-ms-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-} */

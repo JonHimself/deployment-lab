@@ -14,14 +14,18 @@
     <title>Crypto Project</title>
   </head>
   <body>
-    <input type='text' class='search' / ><button
-      class="tickerValue"
-      type="submit"
-    >
-      Search by Ticker
-    </button>
-    <div id="crypto-container"><section id="name"></section></div>
-    <div><section class="priceAni" id="price"></section></div>
+    <section id="ticker-container"></section>
+    <div id="img-container"></div>
+    <div id="crypto-name-container">
+      <section id="name"></section>
+    </div>
+    <div id="crypto-price-container">
+      <section class="priceAni" id="price"></section>
+    </div>
+    <div id="search-container">
+      <input type="text" class="search" />
+      <button class="tickerValue" type="submit">TICKER</button>
+    </div>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
   </body>
