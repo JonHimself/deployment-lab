@@ -12,6 +12,10 @@ body {
   align-items: center;
 }
 
+#ticker-container {
+  color: white;
+}
+
 #img-container {
   display: flex;
   align-items: flex-end;
