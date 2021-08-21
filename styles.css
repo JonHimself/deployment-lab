@@ -1,45 +1,64 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: black;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-#ticker-container {
+h1 {
+  font-size: x-large;
+  font-family: "Varela Round", sans-serif;
   color: white;
+}
+ul {
+  list-style: none;
+  padding-bottom: 2%;
+}
+#list {
+  font-family: "Varela Round", sans-serif;
+  color: white;
+  font-size: medium;
+}
+#ticker-container {
+  order: 2;
+  color: white;
+  list-style: none;
+  font-family: "Varela Round", sans-serif;
+  font-size: small;
 }
 
 #img-container {
   display: flex;
-  align-items: flex-end;
   height: 20vh;
   width: 100%;
   justify-content: center;
 }
 
 #crypto-name-container {
-  display: flex;
-  flex-direction: column-reverse;
-  height: 10vh;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  /* display: flex;
+  flex-direction: column-reverse; */
+  /* height: 10vh;
+  width: 100%; */
+  /* align-items: center;
+  justify-content: space-between; */
 }
 
 #crypto-price-container {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   text-align: center;
-  height: 10vh;
-  width: 100%;
+  /* height: 10vh;
+  width: 100%; */
 }
 
 #price {
@@ -49,164 +68,10 @@ body {
 }
 
 #search-container {
-  padding-top: 3%;
   text-align: center;
-  align-self: center;
+  /* align-self: center; */
   height: 25vh;
   width: 100%;
-}
-
-img {
-  object-fit: cover;
-  max-height: 75%;
-  max-width: 75%;
-  animation: fadeIn linear 10s;
-  -webkit-animation: fadeIn linear 2s;
-  -moz-animation: fadeIn linear 2s;
-  -o-animation: fadeIn linear 2s;
-  -ms-animation: fadeIn linear 2s;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-ms-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.id {
-  font-family: "Varela Round", sans-serif;
-  font-size: 48px;
-  color: white;
-  animation: fadeIn linear 10s;
-  -webkit-animation: fadeIn linear 2s;
-  -moz-animation: fadeIn linear 2s;
-  -o-animation: fadeIn linear 2s;
-  -ms-animation: fadeIn linear 2s;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-ms-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.priceAni {
-  font-family: "Varela Round", sans-serif;
-  font-size: x-large;
-  color: white;
-  animation: fadeOut ease 3s;
-  -webkit-animation: fadeOut ease 2.5s;
-  -moz-animation: fadeOut ease 2.5s;
-  -o-animation: fadeOut ease 2.5s;
-  -ms-animation: fadeOut ease 2.5s;
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-@-moz-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-@-o-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-@-ms-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
 }
 
 .search {

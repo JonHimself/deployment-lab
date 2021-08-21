@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="animations.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
       rel="stylesheet"
@@ -14,21 +15,40 @@
     <title>Crypto Project</title>
   </head>
   <body>
-    <section>
-      <ul id="ticker-container"></ul>
+    <main>
+      <div class="list" id="list">Hello</div>
+      <div class="pagenumbers" id="pagination"></div>
+    </main>
+    <!-- INITAL PAGINATION LOCATION ATTEMPT-->
+    <!-- <section id="list">
+      <ul id="list-body">
+        <h1 id="listH1">TOP 100</h1>
+      </ul>
+      <div class="pagination">
+        <a class="first" href="#">&laquo;</a>
+        <a class="one" href="#">1</a>
+        <a class="two" href="#">2</a>
+        <a class="three" href="#">3</a>
+        <a class="four" href="#">4</a>
+        <a class="five" href="#">5</a>
+        <a class="last" href="#">&raquo;</a>
+      </div>
+    </section> -->
+    <section id="ticker-content">
+      <div id="img-container"></div>
+      <div id="crypto-name-container">
+        <section id="name"></section>
+      </div>
+      <div id="crypto-price-container">
+        <section class="priceAni" id="price"></section>
+      </div>
+      <div id="search-container">
+        <input type="text" class="search" />
+        <button class="tickerValue" type="submit">TICKER</button>
+      </div>
     </section>
-    <div id="img-container"></div>
-    <div id="crypto-name-container">
-      <section id="name"></section>
-    </div>
-    <div id="crypto-price-container">
-      <section class="priceAni" id="price"></section>
-    </div>
-    <div id="search-container">
-      <input type="text" class="search" />
-      <button class="tickerValue" type="submit">TICKER</button>
-    </div>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="test.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

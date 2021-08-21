@@ -1,7 +1,7 @@
+
 let tickerValue = document.querySelector('.tickerValue');
 let priceAnima = document.querySelector('.priceAni');
 let imgContainer = document.querySelector('#img-container')
-let tickerContainer = document.querySelector('#ticker-container')
 let runAni;
 let runPrice;
 
@@ -14,18 +14,6 @@ runAni = setInterval(priceAnimation, 3000);
 runPrice = setInterval(updatePrice, 3000);
 }
 
-//LOGS TICKERS FOR TICKER LIST IMPLEMENTATION 
-// const tickerList = () => {
-//     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3`)
-//     .then(res => {
-//         for(let i = 0; i < res.data.length; i++) {
-//             console.log(res.data[i].id)
-//             let tickerElement = document.createElement('li')
-//             tickerElement.textContent = res.data[i].id
-//             tickerContainer.appendChild(tickerElement)
-//         }
-//     })
-// }
 
 const bodyImg = () => {
     let ticker = document.querySelector('.search').value;
@@ -77,5 +65,4 @@ const updatePrice = () => {
 const priceAnimation = () => {
     priceAnima.classList.toggle('priceAni')
 }
-// tickerList();
 tickerValue.addEventListener('click', searchTicker);
