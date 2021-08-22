@@ -76,20 +76,25 @@ let tableData = [{id: "BTC", name: "Bitcoin"},
 ];
 const listElement = document.getElementById('list');
 const paginationElement = document.getElementById('pagination');
-
+let coinText = document.createElement('span');
 let currentPage = 1;
 let rows = 15;
 
-// const updateListPrice = () => {
-//     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=${tickerPrice}`)
-//     .then(res => {
-//         for(let i = 0; i < res.data.length; i++) {
-//             let currentPrice = res.data[i].price;
-//             price.textContent = `$ ${currentPrice}`;
-//         }
-//     })
-//     }
-
+//UPDATING PRICE REALTIME TESTS
+function updateListPrice() {
+    axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=BTC`)
+    .then(res => {
+        for(let i = 0; i < res.data.length; i++) {
+            let coin = document.querySelector('.BTC');
+            let price = parseFloat(res.data[i].price).toFixed(3);
+            coinText.innerText = ` $${price}`
+            coin.appendChild(coinText);
+            console.log('iht')
+        }
+    })
+    };
+setInterval(updateListPrice, 3000)
+// updateListPrice();
 
 function displayList (items, wrapper, rowsPerPage, page){
     wrapper.innerHTML = "";
@@ -102,6 +107,7 @@ function displayList (items, wrapper, rowsPerPage, page){
         let item = paginatedItems[i];
         let itemElement = document.createElement('div')
         itemElement.classList.add('item');
+        itemElement.classList.add(`${item.id}`)
         itemElement.innerText = `${item.id} - ${item.name}`;
         wrapper.appendChild(itemElement);
     }
@@ -168,3 +174,4 @@ function pagionationButton(page, items){
 
 displayList(tableData, listElement, rows, currentPage);
 setupPagination(tableData, paginationElement, rows)
+
