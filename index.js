@@ -56,7 +56,7 @@ const updatePrice = () => {
     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=${tickerPrice}`)
     .then(res => {
         for(let i = 0; i < res.data.length; i++) {
-            let currentPrice = parseFloat(res.data[i].price).toFixed(3);
+            let currentPrice = (parseFloat(res.data[i].price).toFixed(3) * 1);
             price.textContent = `$ ${currentPrice}`;
         }
     })

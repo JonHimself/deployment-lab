@@ -80,20 +80,34 @@ let coinText = document.createElement('span');
 let currentPage = 1;
 let rows = 15;
 
+
+// let symbol = [];
+// const getSymbol = () => {for(let i = 0; i< tableData.length; i++ ){
+//     symbol.push(tableData[i].id)
+//     }
+// }
+// getSymbol();
+// console.log(symbol)
+
 //UPDATING PRICE REALTIME TESTS
 function updateListPrice() {
-    axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=BTC`)
+    for(let i = 0; i < tableData.length; i ++){
+    let symbol = tableData[i].id;
+    console.log(symbol)    
+    axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=${symbol}`)
     .then(res => {
         for(let i = 0; i < res.data.length; i++) {
-            let coin = document.querySelector('.BTC');
-            let price = parseFloat(res.data[i].price).toFixed(3);
+            let id = res.data[i].id;
+            // console.log(id);
+            // let coinSelector = document.querySelector(`${id}`) 
+            let coin = document.querySelector(`.${symbol}`);
+            let price = (parseFloat(res.data[i].price).toFixed(3) * 1);
             coinText.innerText = ` $${price}`
             coin.appendChild(coinText);
-            console.log('iht')
         }
-    })
+    })}
     };
-setInterval(updateListPrice, 3000)
+// setInterval(updateListPrice, 10000)
 // updateListPrice();
 
 function displayList (items, wrapper, rowsPerPage, page){
