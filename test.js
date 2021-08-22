@@ -72,32 +72,7 @@ let tableData = [{id: "BTC", name: "Bitcoin"},
 {id: "NEAR", name: "Near Protocol"},
 {id: "CHZ", name: "Chiliz"},
 {id: "XEM", name: "NEM"},
-{id: "TFUEL", name: "Theta Fuel"},
-{id: "BLOCKSTACK", name: "Stacks"},
-{id: "ZEC", name: "Zcash"},
-{id: "ENJ", name: "Enjin Coin"},
-{id: "BCHA", name: "Bitcoin Cash ABC"},
-{id: "PLAY", name: "HeroCoin"},
-{id: "QTUM", name: "Qtum"},
-{id: "KOKO", name: "KokoSwap"},
-{id: "YFI", name: "yearn.finance"},
-{id: "FLOW2", name: "Flow"},
-{id: "TUSD", name: "TrueUSD"},
-{id: "TTT2", name: "The Transfer Token"},
-{id: "RVN", name: "RavenCoin"},
-{id: "ZIL", name: "Zilliqa"},
-{id: "AR", name: "Arweave"},
-{id: "BTG", name: "Bitcoin Gold"},
-{id: "AUDIO", name: "Audius"},
-{id: "FTM", name: "Fantom"},
-{id: "SAFEMOON", name: "SafeMoon"},
-{id: "TEL", name: "Telcoin"},
-{id: "BAT", name: "Basic Attention Token"},
-{id: "HARMONY", name: "Harmony"},
-{id: "MANA", name: "Decentraland"},
-{id: "ETHOS", name: "Voyager Token"},
-{id: "NEXO", name: "Nexo"},
-{id: "OGN", name: "Origin Protocol"}
+{id: "TFUEL", name: "Theta Fuel"}
 ];
 const listElement = document.getElementById('list');
 const paginationElement = document.getElementById('pagination');
@@ -105,19 +80,29 @@ const paginationElement = document.getElementById('pagination');
 let currentPage = 1;
 let rows = 15;
 
+// const updateListPrice = () => {
+//     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=${tickerPrice}`)
+//     .then(res => {
+//         for(let i = 0; i < res.data.length; i++) {
+//             let currentPrice = res.data[i].price;
+//             price.textContent = `$ ${currentPrice}`;
+//         }
+//     })
+//     }
+
+
 function displayList (items, wrapper, rowsPerPage, page){
     wrapper.innerHTML = "";
     page--;
     let start = rowsPerPage * page;
     let end = start + rowsPerPage;
     let paginatedItems = items.slice(start, end);
+
     for(let i = 0; i < paginatedItems.length; i++) {
         let item = paginatedItems[i];
-
         let itemElement = document.createElement('div')
         itemElement.classList.add('item');
         itemElement.innerText = `${item.id} - ${item.name}`;
-
         wrapper.appendChild(itemElement);
     }
 }
@@ -128,23 +113,37 @@ function setupPagination (items, wrapper, rowsPerPage, ){
 
     //PREV BUTTON & NEXT BUTTON
     let prevButton = document.createElement('button');
-    prevButton.innerText = '<<'
+    prevButton.innerText = '<'
     prevButton.addEventListener('click', function() {
         if(currentPage > 1){currentPage --};
         displayList(items, listElement, rows, currentPage);
+
+        let currentButton = document.querySelector('.pagenumbers button.active')
+        let prevUpButton = currentButton.previousSibling;
+        if(prevUpButton.innerText !== "<"){
+        currentButton.classList.remove('active');
+        prevUpButton.classList.add('active');
+        }
     })
     wrapper.appendChild(prevButton);
+    //Button Append
     for(let i =1; i < pageCount + 1; i++){
         let btn = pagionationButton(i, items);
         wrapper.appendChild(btn);
     }
+
     let nextButton = document.createElement('button');
-    nextButton.innerText = '>>';
+    nextButton.innerText = '>';
     nextButton.addEventListener('click', function(){
         if(currentPage < pageCount){currentPage ++};
         displayList(items, listElement, rows, currentPage);
-    });
 
+        let currentButton = document.querySelector('.pagenumbers button.active')
+        let nextUpButton = currentButton.nextSibling;
+        if(nextUpButton.innerText !== ">"){
+        currentButton.classList.remove('active');
+        nextUpButton.classList.add('active')
+        }});
     wrapper.appendChild(nextButton);
 }
 
@@ -167,15 +166,5 @@ function pagionationButton(page, items){
     return button;
 }
 
-function previousBtn() {
-    let prevButton = document.createElement('button')
-    prevButton.innerText = '<<'
-    prevButton.addEventListener('click', function() {
-        currentPage ++;
-        displayList(items, listElement, rows, currentPage);
-    })
-}
-
 displayList(tableData, listElement, rows, currentPage);
 setupPagination(tableData, paginationElement, rows)
-previousBtn();

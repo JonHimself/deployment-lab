@@ -8,27 +8,13 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
-  background-color: black;
-  justify-content: space-between;
+  background-color: rgb(0, 0, 0);
   align-items: center;
+  /* justify-content: space-between; */
 }
 
-h1 {
-  font-size: x-large;
-  font-family: "Varela Round", sans-serif;
-  color: white;
-}
-ul {
-  list-style: none;
-  padding-bottom: 2%;
-}
-#list {
-  font-family: "Varela Round", sans-serif;
-  color: white;
-  font-size: medium;
-}
-#ticker-container {
-  order: 2;
+#ticker-content {
+  width: 50vw;
   color: white;
   list-style: none;
   font-family: "Varela Round", sans-serif;
@@ -46,19 +32,16 @@ ul {
   text-align: center;
   /* display: flex;
   flex-direction: column-reverse; */
-  /* height: 10vh;
-  width: 100%; */
+  height: 10vh;
+  width: 100%;
   /* align-items: center;
   justify-content: space-between; */
 }
 
 #crypto-price-container {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   text-align: center;
-  /* height: 10vh;
-  width: 100%; */
+  height: 10vh;
+  width: 100%;
 }
 
 #price {
@@ -69,7 +52,6 @@ ul {
 
 #search-container {
   text-align: center;
-  /* align-self: center; */
   height: 25vh;
   width: 100%;
 }
