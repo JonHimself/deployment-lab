@@ -76,40 +76,38 @@ let tableData = [{id: "BTC", name: "Bitcoin"},
 ];
 const listElement = document.getElementById('list');
 const paginationElement = document.getElementById('pagination');
-let coinText = document.createElement('span');
 let currentPage = 1;
 let rows = 15;
+// let coinText = document.createElement('span');
+// Sleep Function to Throttle API
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
 
-
-// let symbol = [];
-// const getSymbol = () => {for(let i = 0; i< tableData.length; i++ ){
-//     symbol.push(tableData[i].id)
-//     }
-// }
-// getSymbol();
-// console.log(symbol)
-
-//UPDATING PRICE REALTIME TESTS
-function updateListPrice() {
-    for(let i = 0; i < tableData.length; i ++){
-    let symbol = tableData[i].id;
-    console.log(symbol)    
+// UPDATING PRICE REALTIME TESTS
+const updateListPrice = async () => {
+    for(let i = 0; i < 15; i ++){
+    await sleep(1000)
+    let symbol = tableData[i].id;   
     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=${symbol}`)
     .then(res => {
-        for(let i = 0; i < res.data.length; i++) {
-            let id = res.data[i].id;
-            // console.log(id);
-            // let coinSelector = document.querySelector(`${id}`) 
+        for(let j = 0; j < res.data.length; j++) {
+            let coinText = document.createElement('div');
             let coin = document.querySelector(`.${symbol}`);
-            let price = (parseFloat(res.data[i].price).toFixed(3) * 1);
-            coinText.innerText = ` $${price}`
+            let price = (parseFloat(res.data[j].price).toFixed(3) * 1);
+            console.log(coin.childNodes)
+            if(coin.childNodes[i]){coin.removeChild(coin.childNodes[1])}
+            coinText.classList.add('priceColor')
+            coinText.textContent = ` ` + ` $${price}`;
             coin.appendChild(coinText);
         }
     })}
     };
-// setInterval(updateListPrice, 10000)
-// updateListPrice();
+setInterval(updateListPrice, 16000)
+updateListPrice();
 
+
+//LIST CREATION
 function displayList (items, wrapper, rowsPerPage, page){
     wrapper.innerHTML = "";
     page--;
@@ -130,14 +128,12 @@ function displayList (items, wrapper, rowsPerPage, page){
 function setupPagination (items, wrapper, rowsPerPage, ){
     wrapper.innerHTML= '';
     let pageCount = Math.ceil(items.length / rowsPerPage);
-
     //PREV BUTTON & NEXT BUTTON
     let prevButton = document.createElement('button');
     prevButton.innerText = '<'
     prevButton.addEventListener('click', function() {
         if(currentPage > 1){currentPage --};
         displayList(items, listElement, rows, currentPage);
-
         let currentButton = document.querySelector('.pagenumbers button.active')
         let prevUpButton = currentButton.previousSibling;
         if(prevUpButton.innerText !== "<"){
@@ -151,7 +147,6 @@ function setupPagination (items, wrapper, rowsPerPage, ){
         let btn = pagionationButton(i, items);
         wrapper.appendChild(btn);
     }
-
     let nextButton = document.createElement('button');
     nextButton.innerText = '>';
     nextButton.addEventListener('click', function(){
@@ -170,15 +165,12 @@ function setupPagination (items, wrapper, rowsPerPage, ){
 function pagionationButton(page, items){
     let button = document.createElement('button');
     button.innerText = page;
-
     if(currentPage === page) {
         button.classList.add('active');
     }
-
     button.addEventListener('click', function () {
         currentPage = page;
         displayList(items, listElement, rows, currentPage);
-
         let currentButton = document.querySelector('.pagenumbers button.active')
         currentButton.classList.remove('active');
         button.classList.add('active')
