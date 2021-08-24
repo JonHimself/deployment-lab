@@ -1,18 +1,14 @@
 let tableData = [{id: "BTC", name: "Bitcoin"},
 {id: "ETH", name: "Ethereum"},
-{id: "HEX", name: "HEX"},
 {id: "ADA", name: "Cardano"},
 {id: "BNB", name: "Binance Coin"},
-{id: "USDT", name: "Tether"},
 {id: "XRP", name: "Ripple"},
 {id: "DOGE", name: "Dogecoin"},
 {id: "DOT", name: "Polkadot"},
-{id: "USDC", name: "USD Coin"},
 {id: "SOL", name: "Solana"},
 {id: "UNI", name: "Uniswap Protocol Token"},
 {id: "BCH", name: "Bitcoin Cash"},
 {id: "LINK", name: "ChainLink"},
-{id: "BUSD", name: "Binance USD"},
 {id: "LUNA", name: "Luna"},
 {id: "LTC", name: "Litecoin"},
 {id: "ICP", name: "Dfinity"},
@@ -86,24 +82,25 @@ const sleep = (milliseconds) => {
 
 // UPDATING PRICE REALTIME TESTS
 const updateListPrice = async () => {
-    for(let i = 0; i < 15; i ++){
-    await sleep(1000)
+    for(let i = 0; i < tableData.length; i ++){
+    await sleep(1500)
     let symbol = tableData[i].id;   
     axios.get(`https://api.nomics.com/v1/currencies/ticker?key=9ae301e9467e3eef04cb5868e1c8ed92299dc5d3&ids=${symbol}`)
     .then(res => {
         for(let j = 0; j < res.data.length; j++) {
-            let coinText = document.createElement('div');
+            let coinText = document.createElement('span');
             let coin = document.querySelector(`.${symbol}`);
             let price = (parseFloat(res.data[j].price).toFixed(3) * 1);
-            console.log(coin.childNodes)
-            if(coin.childNodes[i]){coin.removeChild(coin.childNodes[1])}
+            if(coin.childNodes[1]) {
+                coin.removeChild(coin.childNodes[1])
+            }
             coinText.classList.add('priceColor')
             coinText.textContent = ` ` + ` $${price}`;
             coin.appendChild(coinText);
         }
     })}
     };
-setInterval(updateListPrice, 16000)
+setInterval(updateListPrice, 22500)
 updateListPrice();
 
 
