@@ -69,14 +69,13 @@ let tableData = [{id: "BTC", name: "Bitcoin", searchToken: 'BTCUSDT'},
 ];
 
 ///LIVE PRICE UPDATE
-let wsTEN = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade/usdtusdt@trade/ethusdt@trade/maticusdt@trade/adausdt@trade/bnbusdt@trade/xrpusdt@trade/dogeusdt@trade/dotusdt@trade/solusdt@trade/uniusdt@trade/bchusdt@trade/linkusdt@trade/lunausdt@trade/ltcusdt@trade/icpusdt@trade/algousdt@trade/trxusdt@trade/avaxusdt@trade/xlmusdt@trade/etcusdt@trade/vetusdt@trade/thetausdt@trade/filusdt@trade/cethusdt@trade/aaveusdt@trade/atomusdt@trade/fttusdt@trade');
+let wsTEN = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade/maticusdt@trade/adausdt@trade/bnbusdt@trade/xrpusdt@trade/dogeusdt@trade/dotusdt@trade/solusdt@trade/uniusdt@trade/bchusdt@trade/linkusdt@trade/lunausdt@trade/ltcusdt@trade/icpusdt@trade/algousdt@trade/trxusdt@trade/avaxusdt@trade/xlmusdt@trade/etcusdt@trade/vetusdt@trade/thetausdt@trade/filusdt@trade/cethusdt@trade/aaveusdt@trade/atomusdt@trade');
 let lastPrice = null;
-
 wsTEN.onmessage = (e) => {
     let cryptoObjectThree = JSON.parse(e.data);
     let price = parseFloat(cryptoObjectThree.p).toFixed(2) * 1;
     for(let i = 0; i <tableData.length; i++){
-        let symbol = tableData[i].searchToken; 
+        let symbol = tableData[i].searchToken;
             if(cryptoObjectThree.s === symbol){  
             let priceElement = document.createElement('span');
             priceElement.textContent = price;
@@ -86,11 +85,12 @@ wsTEN.onmessage = (e) => {
             if(cryptoElement.childNodes[1]){
                 cryptoElement.removeChild(cryptoElement.childNodes[1])
             }
+            //Append New Price
             cryptoElement.appendChild(priceElement);
             lastPrice = price;
             }
         }}
-
+        
 const listElement = document.getElementById('list');
 const paginationElement = document.getElementById('pagination');
 let currentPage = 1;
@@ -98,9 +98,6 @@ let rows = 15;
 
 // let coinText = document.createElement('span');
 // Sleep Function to Throttle API
-const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
 //LIST CREATION
 function displayList (items, wrapper, rowsPerPage, page){
     wrapper.innerHTML = "";
