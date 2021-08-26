@@ -1,6 +1,9 @@
 let tickerValue = document.querySelector('.tickerValue');
 let priceAnima = document.querySelector('.priceAni');
 let imgContainer = document.querySelector('#img-container')
+let donate = document.getElementById('donate')
+let modal = document.getElementById("modal");
+let closeModal = document.getElementsByClassName("close")[0];
 let runAni;
 let runPrice;
 
@@ -64,4 +67,23 @@ const updatePrice = () => {
 const priceAnimation = () => {
     priceAnima.classList.toggle('priceAni')
 }
+
 tickerValue.addEventListener('click', searchTicker);
+
+
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+donate.addEventListener('click', () => {
+    modal.style.display = 'block'
+})
+closeModal.addEventListener('click', () => {
+    modal.style.display = "none";
+})
+
+
+
