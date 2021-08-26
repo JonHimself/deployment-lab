@@ -1,4 +1,3 @@
-
 let tickerValue = document.querySelector('.tickerValue');
 let priceAnima = document.querySelector('.priceAni');
 let imgContainer = document.querySelector('#img-container')
