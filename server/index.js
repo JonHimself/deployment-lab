@@ -8,15 +8,15 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'))
 })
 
-app.get('styles', (req, res) => {
+app.get('/styles.css', (req, res) => {
     res.sendFile(path.join(__dirname, '../styles.css'))
 })
 
-app.get('animations', (req, res) => {
+app.get('/animations.css', (req, res) => {
     res.sendFile(path.join(__dirname, '../animations.css'))
 })
 
-app.get('js', (req, res) => {
+app.get('/index.js', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.js'))
 })
 
