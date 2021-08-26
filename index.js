@@ -87,3 +87,9 @@ closeModal.addEventListener('click', () => {
 
 
 
+document.onclick = function(event){
+    let body = document.querySelector('body')
+    if(event.target === body){
+        modal.style.display = "none";
+    }
+}
